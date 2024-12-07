@@ -1,0 +1,8 @@
+langchain
+langchain_google_genai
+Pillow
+streamlit
+langchain_community
+sentence_transformers
+langchain-huggingface
+faiss-cpu
