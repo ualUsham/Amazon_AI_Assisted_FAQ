@@ -20,14 +20,14 @@ pip install -r requirements.txt
 ```
 ###**Suggested to use a virtual environment**
 
-📂 Code Files
-streamlit_code.py: Contains the code for the Streamlit-based UI.
-helper_code.py: Implements RAG using LLM, LangChain, embeddings, and the vector database.
+📂 **Code Files**  
+streamlit_code.py: Contains the code for the Streamlit-based UI.  
+helper_code.py: Implements RAG using LLM, LangChain, embeddings, and the vector database.  
 app.py: Combines the functionalities to run and deploy the complete project.
 
-🛠 Tools Used
-LLM: Google’s “Gemini-1.5-Flash”
-Embeddings: HuggingFace Instructor Embeddings
-Vector Database & Retrieval: FAISS
-Integration: LangChain
+🛠 **Tools Used**  
+LLM: Google’s “Gemini-1.5-Flash”  
+Embeddings: HuggingFace Instructor Embeddings  
+Vector Database & Retrieval: FAISS  
+Integration: LangChain  
 UI & Deployment: Streamlit
