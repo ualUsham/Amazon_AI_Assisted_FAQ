@@ -17,7 +17,7 @@ Follow these steps to run the project locally:
 Install the necessary dependencies:  
 ```cmd
 pip install -r requirements.txt
-
+```
 ###**Suggested to use a virtual environment**
 
 📂 Code Files
