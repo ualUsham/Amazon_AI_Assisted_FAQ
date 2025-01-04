@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 # Call LLM model
 from langchain_google_genai import ChatGoogleGenerativeAI
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key="AIzaSyCxpS4DpYHn8vmDVk04uYDeyIODFpz07hU")
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key="AIzaSyCnknGUirvA-H7GOviqbWfi8jnzn1u9zz4")
 
 # Create an embedding object
 embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
