@@ -21,9 +21,10 @@ pip install -r requirements.txt
 ###**Suggested to use a virtual environment**
 
 📂 **Code Files**  
+app.py: main python file of the project.
 streamlit_code.py: Contains the code for the Streamlit-based UI.  
 helper_code.py: Implements RAG using LLM, LangChain, embeddings, and the vector database.  
-app.py: Combines the functionalities to run and deploy the complete project.
+
 
 🛠 **Tools Used**  
 LLM: Google’s “Gemini-1.5-Flash”  
