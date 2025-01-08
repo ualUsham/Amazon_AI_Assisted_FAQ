@@ -83,7 +83,7 @@ st.markdown(
 st.markdown(
     "<h4 style='color:#ff4b4b;font-family:Source Sans Pro; font-weight:bold'>Query :</h4>", 
     unsafe_allow_html=True)
-question=st.text_input(label="Question",placeholder="Write a question.....How to apply coupons?", label_visibility="collapsed")
+question=st.text_input(label="Question",placeholder="Ask a question.....How to apply coupons?", label_visibility="collapsed")
 
 #answer template function
 def ans_template():
