@@ -120,7 +120,8 @@ if question:
                 answer = get_answer(question)
                 ans_template()
             except:
-                st.write("Enter a Valid API key") 
+                st.markdown(
+            "<p style='color:red; font-family:Arial; font-size:18px; font-weight:bold' >Enter a Valid API key !! </p>", unsafe_allow_html=True) 
         
 
     
