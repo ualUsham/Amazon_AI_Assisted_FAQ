@@ -8,11 +8,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 # API key
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
+# load_dotenv()
+# google_api_key = os.getenv("GOOGLE_API_KEY")
+google_api_key = st.secrets["GOOGLE_API_KEY"]
 
-load_dotenv()
-google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # Create an embedding object
 embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
