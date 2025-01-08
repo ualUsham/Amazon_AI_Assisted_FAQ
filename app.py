@@ -6,6 +6,7 @@ from langchain.chains.retrieval import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
+import streamlit as st
 
 # API key
 # from dotenv import load_dotenv
@@ -61,7 +62,7 @@ def get_answer(query):
 
 #Streamlit code starts here.........................................
 
-import streamlit as st
+
 from PIL import Image
 #f7a805 #yellow
 #2f2e2a #black
