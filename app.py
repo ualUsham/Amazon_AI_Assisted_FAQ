@@ -22,10 +22,8 @@ embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v
 # Function to get answers using FAISS
 def get_answer(query):
     # Call LLM model
-    try:
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=google_api_key)
-    except:
-        return st.write("Enter a Valid API key")
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=google_api_key)
+    
     
     system_prompt = (
         "Use the context to answer the question. "
@@ -118,8 +116,11 @@ if question:
         user_api=st.text_input(label="user_api", placeholder="Your API key ...",label_visibility="collapsed")
         if user_api:
             google_api_key=user_api
-            answer = get_answer(question)
-            ans_template()
+            try:
+                answer = get_answer(question)
+                ans_template()
+            except:
+                st.write("Enter a Valid API key") 
         
 
     
