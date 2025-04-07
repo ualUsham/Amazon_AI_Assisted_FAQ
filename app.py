@@ -17,7 +17,10 @@ google_api_key = st.secrets["GOOGLE_API_KEY"]
 
 
 # Create an embedding object
-embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+# embed = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+embed = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=google_api_key)
+
 
 # Function to get answers using FAISS
 def get_answer(query):
