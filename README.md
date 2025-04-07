@@ -5,7 +5,7 @@ This repository contains the code for an AI-powered FAQ chatbot designed for Ama
 ---
 
 ## 🌐 Access the App
-👉 **To use the app, go to the link:** [Amazon AI-Assisted FAQ Chatbot](https://amazon-ai-assisted-faq.streamlit.app/)  
+👉 **To use the app, go to the link:** [Amazon AI-Assisted FAQ Chatbot](https://amazonaiassistedfaq.streamlit.app/)  
 
 ---
 
