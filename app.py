@@ -48,7 +48,7 @@ def get_answer(query):
         vdb = FAISS.load_local(f"amazon_vdb_chunk_{i}", embeddings=embed, allow_dangerous_deserialization=True)
         retriever = vdb.as_retriever(
             search_type="similarity_score_threshold",
-            search_kwargs={'score_threshold': 0.3}
+            search_kwargs={'score_threshold': 0.2}
         )
 
         # Create the chain with the retriever and stuff documents chain
