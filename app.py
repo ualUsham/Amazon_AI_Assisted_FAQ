@@ -33,35 +33,42 @@ def get_answer(query):
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=st.session_state.google_api_key)
 
     system_prompt = (
-        "You are an assistant that answers user questions using the provided context. "
-        "Respond concisely in less than 10 sentences. If possible, provide stepwise instructions. "
-        "If the answer is not found in context, say so.\n\nContext:\n{context}"
+    "You are an assistant that answers user questions using the provided context. "
+    "Respond concisely in less than 10 sentences. If possible, provide stepwise instructions. "
+    "If the answer is not found in context, say so.\n\nContext:\n{context}"
+)
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", system_prompt),
+    ("human", "{input}"),
+])
+
+for i in range(4):
+    index_path = f"amazon_vdb_chunk_{i}"
+    vdb = load_vector_store(index_path)
+    if vdb is None:
+        continue
+
+    retriever = vdb.as_retriever(
+        search_type="similarity_score_threshold",
+        search_kwargs={'score_threshold': 0.2}
     )
 
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", system_prompt),
-        ("human", "{input}"),
-    ])
+    question_answer_chain = create_stuff_documents_chain(llm, prompt)
+    chain = create_retrieval_chain(retriever, question_answer_chain)
 
-    for i in range(4):
-        index_path = f"amazon_vdb_chunk_{i}"
-        vdb = load_vector_store(index_path)
-        if vdb is None:
-            continue
+    result = chain.invoke({"input": query})
+    
+    # Debug: Inspect the result
+    st.write("DEBUG: Chain output:", result)
+    
+    # Check if the key 'result' exists in the output
+    if result.get("result"):
+        return result["result"]
 
-        retriever = vdb.as_retriever(
-            search_type="similarity_score_threshold",
-            search_kwargs={'score_threshold': 0.2}
-        )
+# If no valid answer is found
+return "Please go to the Amazon website for more details because your question is not a part of Amazon FAQ."
 
-        question_answer_chain = create_stuff_documents_chain(llm, prompt)
-        chain = create_retrieval_chain(retriever, question_answer_chain)
-
-        result = chain.invoke({"input": query})
-        if result.get("context"):
-            return result["answer"]
-
-    return "Please go to the Amazon website for more details because your question is not a part of Amazon FAQ."
 
 # ========== Streamlit UI Starts Here ==========
 
