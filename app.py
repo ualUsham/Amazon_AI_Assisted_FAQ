@@ -63,8 +63,7 @@ for i in range(4):
     st.write("DEBUG: Chain output:", result)
     
     # Check if the key 'result' exists in the output
-    if result.get("result"):
-        return result()
+    return result["answer"]
 
 # If no valid answer is found
 return "Please go to the Amazon website for more details because your question is not a part of Amazon FAQ."
